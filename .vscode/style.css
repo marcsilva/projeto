@@ -70,10 +70,14 @@ body * {
   z-index: 1;
   transform: translateY(-50%);
   /*centralização de elementos com position absolute*/
+  animation: slide-back 0.3s;
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+  /*forwards mantem as propriedades finais da animação*/
+}
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -155,4 +159,24 @@ footer a {
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
+}
+/*animation*/
+@keyframes slide-in {
+  /*alide in é o nome da animação criada*/
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+  /*depois de criada a animação substitui o código css criado para o slide do botão por animation: (o nome da keyframe) depois o tempo*/
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+  /*animação do retorno do botão*/
 }
